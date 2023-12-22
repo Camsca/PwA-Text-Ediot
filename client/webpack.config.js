@@ -25,6 +25,7 @@ module.exports = () => {
       }),
       new WebpackPwaManifest({
         name: 'Text Editor',
+        inject: true,
         short_name: 'Text Editor',
         description: 'Text Editor',
         background_color: 'pink',
@@ -43,11 +44,11 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.js$/,
+          test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
